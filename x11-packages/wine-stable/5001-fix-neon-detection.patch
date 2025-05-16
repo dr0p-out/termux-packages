@@ -1,0 +1,20 @@
+--- wine-10.0/dlls/ntdll/unix/system.c.orig	2025-05-17 00:45:23.087029072 +0900
++++ wine-10.0/dlls/ntdll/unix/system.c	2025-05-17 00:45:42.068872705 +0900
+@@ -620,6 +620,7 @@
+                 if (has_feature(value, "crc32"))      features |= CPU_FEATURE_ARM_V8_CRC32;
+                 if (has_feature(value, "aes"))        features |= CPU_FEATURE_ARM_V8_CRYPTO;
+                 if (has_feature(value, "atomics"))    features |= CPU_FEATURE_ARM_V81_ATOMIC;
++                if (has_feature(value, "asimd"))      features |= CPU_FEATURE_ARM_NEON;
+                 if (has_feature(value, "asimddp"))    features |= CPU_FEATURE_ARM_V82_DP;
+                 if (has_feature(value, "jscvt"))      features |= CPU_FEATURE_ARM_V83_JSCVT;
+                 if (has_feature(value, "lrcpc"))      features |= CPU_FEATURE_ARM_V83_LRCPC;
+--- wine-10.0/programs/wineboot/wineboot.c.orig	2025-05-17 02:40:27.018443788 +0900
++++ wine-10.0/programs/wineboot/wineboot.c	2025-05-17 02:40:57.142124187 +0900
+@@ -468,6 +468,7 @@
+         features[PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE]  = !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_V8_CRC32);
+         features[PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE] = !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_V8_CRYPTO);
+         features[PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE]= !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_V81_ATOMIC);
++        features[PF_ARM_NEON_INSTRUCTIONS_AVAILABLE]      = !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_NEON);
+         features[PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE]    = !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_V82_DP);
+         features[PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE] = !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_V83_JSCVT);
+         features[PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE] = !!(sci.ProcessorFeatureBits & CPU_FEATURE_ARM_V83_LRCPC);
