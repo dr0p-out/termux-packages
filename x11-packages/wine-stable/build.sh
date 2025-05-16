@@ -43,7 +43,6 @@ enable_wineandroid_drv=no
 --without-netapi
 --without-opencl
 --with-opengl
---with-osmesa
 --without-oss
 --without-pcap
 --with-pthread
