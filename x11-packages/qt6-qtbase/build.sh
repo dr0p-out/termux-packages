@@ -65,7 +65,6 @@ opt/qt6/cross/lib/qt6/qt-testrunner.py
 opt/qt6/cross/lib/qt6/sanitizer-testrunner.py
 "
 TERMUX_PKG_RM_AFTER_INSTALL="
-lib/objects-*
 opt/qt6/cross/lib/objects-*
 "
 
